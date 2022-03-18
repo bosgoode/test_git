@@ -1,0 +1,47 @@
+const wholeGrid = document.querySelector(".buttonone");
+const theGrid = document.querySelector(".grid");
+
+wholeGrid.addEventListener("click", () => {
+  if (theGrid.style.border === "") {
+    theGrid.style.border = "groove 7px hsl(195, 100%, 20%)";
+  } else {
+    theGrid.style.border = "";
+  }
+});
+
+const backGround = document.querySelector(".grid");
+
+backGround.addEventListener("pointerenter", () => {
+  backGround.style.backgroundColor === "orange"
+    ? (backGround.style.backgroundColor = "white")
+    : (backGround.style.backgroundColor = "orange");
+});
+
+backGround.addEventListener("pointerleave", () => {
+  backGround.style.backgroundColor === "orange"
+    ? (backGround.style.backgroundColor = "white")
+    : (backGround.style.backgroundColor = "orange");
+});
+
+const cells = document.querySelectorAll(".cell");
+
+cells.forEach((cell) => {
+  cell.addEventListener("wheel", () => {
+    cell.style.backgroundColor === "pink"
+      ? (cell.style.backgroundColor = "")
+      : (cell.style.backgroundColor = "pink");
+  });
+});
+// 16777216 to include "1" where it would return #ffffff
+const randomColor = () => {
+  let hexColor = (Math.random() * 16777215) | (0).toString(16);
+  return hexColor;
+};
+
+const bColor = document.body;
+
+bColor.addEventListener("keydown", (key) => {
+  if (key.code === "Enter") {
+    bColor.style.backgroundColor = `#${randomColor()}`;
+  }
+});
